@@ -1,0 +1,6 @@
+@alimentosAPI_HostAddress = http://localhost:5150
+
+GET {{alimentosAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
