@@ -70,8 +70,6 @@ namespace alimentosAPI.controller
                 return BadRequest(ex.Message);
             }
         }
-
-        
         
         [HttpDelete("{id}")]
 
@@ -97,5 +95,24 @@ namespace alimentosAPI.controller
             }
         } 
 
+        [HttpPost]
+
+        public async Task<IActionResult> Add(Alimentos novoAlimento)
+        {
+                try
+                {
+                    if(novoAlimento.Calorias == 0) 
+                    throw new Exception("Um alimento precisa ter valor energetico");
+                    
+                    await _context.TB_ALIMENTOS.AddAsync(novoAlimento);
+                    await _context.SaveChangesAsync();
+
+                    return Ok(novoAlimento.Id);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        return BadRequest(ex.Message);
+                    }
+            } 
     }
 }

@@ -14,7 +14,8 @@ namespace AlimentosAPI.Models
         
         public int Id { get; set;}
         public string Username { get; set;}
-       
+
+        public byte[]? Foto { get; set; }
         public byte[]? PasswordHash {get; set;}
 
         public byte[]? PasswordSalt {get; set;}
@@ -31,4 +32,12 @@ namespace AlimentosAPI.Models
 
         public string Email {get; set;} = string.Empty;
     }
+
+        public class AlterarSenhaDto
+    {
+        public int UserId { get; set; }
+        public string SenhaAtual { get; set; }
+        public string NovaSenha { get; set; }
+    }
+    
 }
